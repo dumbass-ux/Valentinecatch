@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💖</title>
+    <title>💖 Love Game 💖</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
 </head>
@@ -11,7 +11,7 @@
     <div class="container">
         <h1>💌 Memory Game 💌</h1>
         
-        <!-- Game Section -->
+        <!-- 🎮 Game Section -->
         <div id="game-section">
             <p>Match the cute pairs! 🥰</p>
             <div class="game-board">
@@ -20,7 +20,7 @@
             <button onclick="showSection('quiz-section')">📖 Start Quiz</button>
         </div>
 
-        <!-- Quiz Section -->
+        <!-- ❓ Quiz Section -->
         <div id="quiz-section" style="display:none;">
             <h2>❓ Love Quiz ❓</h2>
             <p>Answer some cute questions! 💕</p>
@@ -35,10 +35,30 @@
             <button>🖤 Black Tea</button>
             <button>🍯 Sweet Tea</button>
 
+            <p>3️⃣ What’s the best way to spend a cozy evening? 🌙</p>
+            <button>📖 Reading together</button>
+            <button>🎮 Playing games</button>
+            <button>🍿 Watching movies</button>
+
+            <p>4️⃣ What’s my go-to comfort food? 🍕</p>
+            <button>🍫 Chocolate</button>
+            <button>🍟 Fries</button>
+            <button>🍕 Pizza</button>
+
+            <p>5️⃣ Which romantic gesture melts my heart the most? 💖</p>
+            <button>💌 Love letters</button>
+            <button>🌹 Surprise flowers</button>
+            <button>🍽️ A homemade meal</button>
+
+            <p>6️⃣ What’s my dream date? ✨</p>
+            <button>🌊 Beach picnic</button>
+            <button>🎡 Amusement park fun</button>
+            <button>🏕️ Stargazing under the stars</button>
+
             <button onclick="showSection('final-section')">💌 Final Question</button>
         </div>
 
-        <!-- Final Section -->
+        <!-- 💘 Final Section -->
         <div id="final-section" style="display:none;">
             <h2>💘 Will You Be My Valentine? 💘</h2>
             <p>Choose wisely! 😉</p>
@@ -46,5 +66,28 @@
             <button onclick="showSticker('no')">❌ No 💔</button>
         </div>
     </div>
+
+    <script>
+        function showSection(section) {
+            document.getElementById('game-section').style.display = 'none';
+            document.getElementById('quiz-section').style.display = 'none';
+            document.getElementById('final-section').style.display = 'none';
+
+            document.getElementById(section).style.opacity = 0;
+            document.getElementById(section).style.display = 'block';
+
+            setTimeout(() => {
+                document.getElementById(section).style.opacity = 1;
+            }, 200); // Smooth fade-in effect
+        }
+
+        function showSticker(choice) {
+            if (choice === 'yes') {
+                alert("Yay! 💖 Let's celebrate love! 🎉");
+            } else {
+                alert("Aww 💔 Maybe next time?");
+            }
+        }
+    </script>
 </body>
 </html>
