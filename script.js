@@ -63,26 +63,33 @@ const cardsArray = [
 
 let selectedCards = [];
 let matchedCards = [];
+const cardsArray = [
+    { name: "heart", img: "❤️" },
+    { name: "heart", img: "❤️" },
+    { name: "star", img: "⭐" },
+    { name: "star", img: "⭐" }
+    // Add more pairs as needed
+];
 
 function createBoard() {
-    const gameBoard = document.querySelector(".game-board");
-    gameBoard.innerHTML = "";
+    let gameBoard = document.querySelector(".game-board");
+    gameBoard.innerHTML = ""; // Clear previous board if any
 
-    // Shuffle cards randomly
-    const shuffledCards = cardsArray.sort(() => 0.5 - Math.random());
+    // Shuffle Cards
+    let shuffledCards = cardsArray.sort(() => 0.5 - Math.random());
 
-    shuffledCards.forEach((card, index) => {
-        const cardElement = document.createElement("div");
+    shuffledCards.forEach(card => {
+        let cardElement = document.createElement("div");
         cardElement.classList.add("card");
         cardElement.dataset.name = card.name;
-        cardElement.innerHTML = "❔"; // Hidden state
+        cardElement.innerHTML = "❔";
         cardElement.addEventListener("click", flipCard);
         gameBoard.appendChild(cardElement);
     });
 }
 
 function flipCard() {
-    if (selectedCards.length < 2 && !this.classList.contains("matched")) {
+    if (selectedCards.length < 2 && !this.classList.contains("matched") && !selectedCards.includes(this)) {
         this.innerHTML = cardsArray.find(card => card.name === this.dataset.name).img;
         selectedCards.push(this);
 
@@ -97,7 +104,10 @@ function checkMatch() {
         selectedCards.forEach(card => card.classList.add("matched"));
         matchedCards.push(...selectedCards);
     } else {
-        selectedCards.forEach(card => card.innerHTML = "❔");
+        // Adding a flip-back animation delay for better UX
+        setTimeout(() => {
+            selectedCards.forEach(card => card.innerHTML = "❔");
+        }, 400);
     }
     selectedCards = [];
 
@@ -106,5 +116,5 @@ function checkMatch() {
     }
 }
 
-// Initialize the game
+// Initialize the game on page load
 document.addEventListener("DOMContentLoaded", createBoard);
