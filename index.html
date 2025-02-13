@@ -9,6 +9,11 @@
 </head>
 <body>
     <audio autoplay loop>
+        <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio><audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
         <source src="background-music.mp3" type="audio/mpeg">
     </audio>
     <div class="container">
@@ -25,11 +30,14 @@
 </audio><audio autoplay loop>
     <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
 </audio>  
+        
 
 <div id="final-section" style="display:none;">
     <!-- Final Page Code Here -->
 </div>
         <button id="startQuiz" style="display: none;" onclick="window.location.href='quiz.html'">Next ➡️</button>
+<button onclick="showSection('quiz-section')">📖 Start Quiz</button>
+<button onclick="showSection('final-section')">💌 Final Question</button>
     </div>
 </body>
 </html>
