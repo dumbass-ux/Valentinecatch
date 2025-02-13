@@ -55,6 +55,25 @@ document.addEventListener("DOMContentLoaded", () => {
     sticker.style.transform = "translate(-50%, -50%)";
     document.body.appendChild(sticker);
     }
+    function showSticker(answer) {
+    let sticker = document.createElement("img");
+    sticker.src = answer === 'yes' ? "https://i.imgur.com/happy-sticker.png" : "https://i.imgur.com/sad-sticker.png";
+    sticker.style.width = "150px";
+    sticker.style.position = "absolute";
+    sticker.style.top = "50%";
+    sticker.style.left = "50%";
+    sticker.style.transform = "translate(-50%, -50%)";
+    document.body.appendChild(sticker);
+}function showSticker(answer) {
+    let sticker = document.createElement("img");
+    sticker.src = answer === 'yes' ? "https://i.imgur.com/happy-sticker.png" : "https://i.imgur.com/sad-sticker.png";
+    sticker.style.width = "150px";
+    sticker.style.position = "absolute";
+    sticker.style.top = "50%";
+    sticker.style.left = "50%";
+    sticker.style.transform = "translate(-50%, -50%)";
+    document.body.appendChild(sticker);
+    }
     function showSection(section) {
     document.getElementById('game-section').style.display = 'none';
     document.getElementById('quiz-section').style.display = 'none';
@@ -63,3 +82,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById(section).style.display = 'block';
     }
 });
+function showSection(section) {
+    document.getElementById('game-section').style.display = 'none';
+    document.getElementById('quiz-section').style.display = 'none';
+    document.getElementById('final-section').style.display = 'none';
+
+    document.getElementById(section).style.display = 'block';
+}function showSection(section) {
+    document.getElementById('game-section').style.display = 'none';
+    document.getElementById('quiz-section').style.display = 'none';
+    document.getElementById('final-section').style.display = 'none';
+
+    document.getElementById(section).style.display = 'block';
+                            }
