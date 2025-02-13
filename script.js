@@ -15,4 +15,4 @@ function showSticker(choice) {
     if (choice === 'yes') {
         alert("Yay! 💖 Let's celebrate love! 🎉");
     } else {
-        alert("Aww 💔 Maybe next time?
+        alert("Aww 💔 Maybe next time?")
