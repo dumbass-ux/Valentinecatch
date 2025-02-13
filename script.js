@@ -41,4 +41,25 @@ document.addEventListener("DOMContentLoaded", () => {
             startQuizButton.style.display = "block";
         }
     }
+    function showSticker(answer) {
+    let sticker = document.createElement("img");
+    if (answer === 'yes') {
+        sticker.src = "https://i.imgur.com/happy-sticker.png"; // Replace with a cute happy sticker
+    } else {
+        sticker.src = "https://i.imgur.com/sad-sticker.png"; // Replace with a sad sticker
+    }
+    sticker.style.width = "150px";
+    sticker.style.position = "absolute";
+    sticker.style.top = "50%";
+    sticker.style.left = "50%";
+    sticker.style.transform = "translate(-50%, -50%)";
+    document.body.appendChild(sticker);
+    }
+    function showSection(section) {
+    document.getElementById('game-section').style.display = 'none';
+    document.getElementById('quiz-section').style.display = 'none';
+    document.getElementById('final-section').style.display = 'none';
+    
+    document.getElementById(section).style.display = 'block';
+    }
 });
