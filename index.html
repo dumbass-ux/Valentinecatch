@@ -10,22 +10,40 @@
 <body>
     <div class="container">
         <h1>💌 Memory Game 💌</h1>
+        
+        <!-- Game Section -->
         <div id="game-section">
-            <div class="game-board"></div>
+            <p>Match the cute pairs! 🥰</p>
+            <div class="game-board">
+                <!-- Add game cards here -->
+            </div>
             <button onclick="showSection('quiz-section')">📖 Start Quiz</button>
         </div>
 
+        <!-- Quiz Section -->
         <div id="quiz-section" style="display:none;">
             <h2>❓ Love Quiz ❓</h2>
             <p>Answer some cute questions! 💕</p>
+            
+            <p>1️⃣ What’s my favorite color? 🎨</p>
+            <button>❤️ Red</button>
+            <button>💙 Blue</button>
+            <button>💜 Purple</button>
+
+            <p>2️⃣ How do I like my tea? 🍵</p>
+            <button>🌿 Green Tea</button>
+            <button>🖤 Black Tea</button>
+            <button>🍯 Sweet Tea</button>
+
             <button onclick="showSection('final-section')">💌 Final Question</button>
         </div>
 
+        <!-- Final Section -->
         <div id="final-section" style="display:none;">
-            <h2>💖 Final Question 💖</h2>
-            <p>Will you be my Valentine? 🥰</p>
-            <button onclick="showSticker('yes')">💘 Yes</button>
-            <button onclick="showSticker('no')">💔 No</button>
+            <h2>💘 Will You Be My Valentine? 💘</h2>
+            <p>Choose wisely! 😉</p>
+            <button onclick="showSticker('yes')">✅ Yes 💖</button>
+            <button onclick="showSticker('no')">❌ No 💔</button>
         </div>
     </div>
 </body>
