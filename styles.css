@@ -3,6 +3,12 @@ body {
     font-family: 'Comic Sans MS', cursive;
     text-align: center;
 }
+body {
+    background: linear-gradient(to right, #fbc2eb, #a6c1ee); /* Soft pastel gradient */
+    font-family: 'Poppins', sans-serif;
+    color: #5d5d5d;
+    text-align: center;
+}
 
 .container {
     margin-top: 50px;
