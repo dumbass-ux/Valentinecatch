@@ -1,16 +1,15 @@
 function showSection(section) {
-    // Hide all sections
     document.getElementById('game-section').style.display = 'none';
     document.getElementById('quiz-section').style.display = 'none';
     document.getElementById('final-section').style.display = 'none';
 
-    // Apply smooth fade-in effect
     document.getElementById(section).style.opacity = 0;
     document.getElementById(section).style.display = 'block';
-
+    
     setTimeout(() => {
         document.getElementById(section).style.opacity = 1;
-    }, 200);
+    }, 200); // Smooth fade-in effect
+}
 }
 function showSticker(answer) {
     let sticker = document.createElement("img");
