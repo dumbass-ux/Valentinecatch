@@ -10,3 +10,10 @@ function showSection(section) {
         document.getElementById(section).style.opacity = 1;
     }, 200); // Smooth fade-in effect
 }
+function showSticker(choice) {
+    if (choice === 'yes') {
+        alert("Yay! 💖 Let's celebrate love! 🎉");
+    } else {
+        alert("Aww 💔 Maybe next time? 🥺");
+    }
+}
