@@ -55,3 +55,25 @@ button:hover {
 h1, p, button {
     animation: fadeIn 1.5s ease-in-out;
 }
+h1, h2 {
+    font-size: 28px;
+    color: #ff6b81;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px;
+    background-color: #ffbfd1;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff8faa;
+}
+
+p {
+    font-size: 18px;
+    color: #ff4d6d;
+}
