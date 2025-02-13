@@ -11,24 +11,22 @@
     <div class="container">
         <h1>💌 Memory Game 💌</h1>
         <div id="game-section">
-            <!-- Memory Game Code Here -->
+            <div class="game-board"></div>
+            <button onclick="showSection('quiz-section')">📖 Start Quiz</button>
         </div>
 
         <div id="quiz-section" style="display:none;">
-            <!-- Quiz Code Here -->
+            <h2>❓ Love Quiz ❓</h2>
+            <p>Answer some cute questions! 💕</p>
+            <button onclick="showSection('final-section')">💌 Final Question</button>
         </div>
 
         <div id="final-section" style="display:none;">
-            <!-- Final Page Code Here -->
+            <h2>💖 Final Question 💖</h2>
+            <p>Will you be my Valentine? 🥰</p>
+            <button onclick="showSticker('yes')">💘 Yes</button>
+            <button onclick="showSticker('no')">💔 No</button>
         </div>
-
-        <!-- Navigation Buttons -->
-        <button onclick="showSection('quiz-section')">📖 Start Quiz</button>
-        <button onclick="showSection('final-section')">💌 Final Question</button>
-
-        <!-- Stickers -->
-        <img src="sticker1.png" class="sticker">
-        <img src="sticker2.png" class="sticker">
     </div>
 </body>
 </html>
