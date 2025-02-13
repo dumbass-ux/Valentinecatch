@@ -1,1 +1,35 @@
+body {
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    font-family: 'Comic Sans MS', cursive;
+    text-align: center;
+}
 
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 28px;
+    color: #ff4d6d;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #ff758f;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ff4d6d;
+}
