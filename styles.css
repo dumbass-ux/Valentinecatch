@@ -29,10 +29,11 @@ p {
 
 .game-board {
     display: grid;
-    grid-template-columns: repeat(4, 80px);
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 10px;
     justify-content: center;
-    margin-top: 20px;
+    margin: 20px auto;
+    max-width: 360px; /* Prevents stretching */
 }
 
 .card {
