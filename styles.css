@@ -51,3 +51,22 @@ button:hover {
 h1, p, button {
     animation: fadeIn 1.5s ease-in-out;
 }
+body {
+    background-color: #fde2e4; /* Soft pastel pink */
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #5d5d5d;
+}
+h1, h2, h3 {
+    font-size: 24px;
+    color: #ff6b81;
+}body {
+    background-color: #fde2e4; /* Soft pastel pink */
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #5d5d5d;
+}
+h1, h2, h3 {
+    font-size: 24px;
+    color: #ff6b81;
+}
