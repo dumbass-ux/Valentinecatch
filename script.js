@@ -1,120 +1,88 @@
-function showSection(section) {
-    document.getElementById('game-section').style.display = 'none';
-    document.getElementById('quiz-section').style.display = 'none';
-    document.getElementById('final-section').style.display = 'none';
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Game</title>
+  <style>
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      gap: 10px;
+    }
+    .card {
+      width: 100px;
+      height: 100px;
+      background-color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+    .flipped {
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-board" id="game-board"></div>
 
-    document.getElementById(section).style.opacity = 0;
-    document.getElementById(section).style.display = 'block';
+  <script>
+    const emojis = ['❤️', '💌', '💘', '💝', '💖', '💗', '💓', '💋'];
+    let cards = [...emojis, ...emojis];
+    let flippedCards = [];
+    let matchedCards = [];
 
-    setTimeout(() => {
-        document.getElementById(section).style.opacity = 1;
-    }, 200); // Smooth fade-in effect
-    function selectAnswer(event) {
-    let correctAnswers = {
-        "What’s my favorite color? 🎨": "💜 Purple",
-        "How do I like my tea? 🍵": "🖤 Black Tea",
-        "What’s the best way to spend a cozy evening? 🌙": "📖 Reading together",
-        "What’s my go-to comfort food? 🍕": "🍫 Chocolate",
-        "Which romantic gesture melts my heart the most? 💖": "💌 Love letters",
-        "What’s my dream date? ✨": "🏕️ Stargazing under the stars"
-    };
-
-    let selectedAnswer = event.target.innerText;
-    let questionText = event.target.parentElement.querySelector("p").innerText;
-
-    if (correctAnswers[questionText] === selectedAnswer) {
-        event.target.style.backgroundColor = "#a6eea6"; // Green for correct answer
-        event.target.style.color = "#fff";
-    } else {
-        event.target.style.backgroundColor = "#ff6b6b"; // Red for wrong answer
-        event.target.style.color = "#fff";
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
     }
 
-    // Prevent multiple clicks
-    event.target.parentElement.querySelectorAll("button").forEach(button => {
-        button.disabled = true;
-    });
-}
+    function createBoard() {
+      const gameBoard = document.getElementById('game-board');
+      shuffle(cards).forEach((emoji, index) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.dataset.index = index;
+        card.textContent = '';
+        card.addEventListener('click', flipCard);
+        gameBoard.appendChild(card);
+      });
+    }
 
-// Attach event listeners to quiz buttons
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("#quiz-section button").forEach(button => {
-        button.addEventListener("click", selectAnswer);
-    });
-})
-}function selectAnswer(event) {
+    function flipCard(e) {
+      const card = e.target;
+      if (flippedCards.length < 2 && !flippedCards.includes(card) && !matchedCards.includes(card)) {
+        card.textContent = cards[card.dataset.index];
+        card.classList.add('flipped');
+        flippedCards.push(card);
 
-
-function showSticker(choice) {
-    if (choice === 'yes') {
-        alert("Yay! 💖 Let's celebrate love! 🎉");
-    } else {
-        alert("Aww 💔 saddie hogyi?")
-const cardsArray = [
-    { name: "heart", img: "❤️" },
-    { name: "flower", img: "🌹" },
-    { name: "ring", img: "💍" },
-    { name: "gift", img: "🎁" },
-    { name: "heart", img: "❤️" },
-    { name: "flower", img: "🌹" },
-    { name: "ring", img: "💍" },
-    { name: "gift", img: "🎁" }
-];
-
-let selectedCards = [];
-let matchedCards = [];
-const cardsArray = [
-    { name: "heart", img: "❤️" },
-    { name: "heart", img: "❤️" },
-    { name: "star", img: "⭐" },
-    { name: "star", img: "⭐" }
-    // Add more pairs as needed
-];
-
-function createBoard() {
-    let gameBoard = document.querySelector(".game-board");
-    gameBoard.innerHTML = ""; // Clear previous board if any
-
-    // Shuffle Cards
-    let shuffledCards = cardsArray.sort(() => 0.5 - Math.random());
-
-    shuffledCards.forEach(card => {
-        let cardElement = document.createElement("div");
-        cardElement.classList.add("card");
-        cardElement.dataset.name = card.name;
-        cardElement.innerHTML = "❔";
-        cardElement.addEventListener("click", flipCard);
-        gameBoard.appendChild(cardElement);
-    });
-}
-
-function flipCard() {
-    if (selectedCards.length < 2 && !this.classList.contains("matched") && !selectedCards.includes(this)) {
-        this.innerHTML = cardsArray.find(card => card.name === this.dataset.name).img;
-        selectedCards.push(this);
-
-        if (selectedCards.length === 2) {
-            setTimeout(checkMatch, 500);
+        if (flippedCards.length === 2) {
+          checkMatch();
         }
+      }
     }
-}
 
-function checkMatch() {
-    if (selectedCards[0].dataset.name === selectedCards[1].dataset.name) {
-        selectedCards.forEach(card => card.classList.add("matched"));
-        matchedCards.push(...selectedCards);
-    } else {
-        // Adding a flip-back animation delay for better UX
+    function checkMatch() {
+      if (flippedCards[0].textContent === flippedCards[1].textContent) {
+        matchedCards.push(...flippedCards);
+      } else {
         setTimeout(() => {
-            selectedCards.forEach(card => card.innerHTML = "❔");
-        }, 400);
+          flippedCards.forEach(card => {
+            card.textContent = '';
+            card.classList.remove('flipped');
+          });
+        }, 1000);
+      }
+      flippedCards = [];
     }
-    selectedCards = [];
 
-    if (matchedCards.length === cardsArray.length) {
-        setTimeout(() => alert("Congratulations! 🎉 You matched all pairs!"), 500);
-    }
-}
-
-// Initialize the game on page load
-document.addEventListener("DOMContentLoaded", createBoard);
+    createBoard();
+  </script>
+</body>
+</html>
