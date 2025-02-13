@@ -27,15 +27,30 @@ p {
     margin-bottom: 10px;
 }
 
-/* Game Board */
 .game-board {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
+    grid-template-columns: repeat(4, 80px);
     gap: 10px;
     justify-content: center;
     margin-top: 20px;
 }
 
+.card {
+    width: 80px;
+    height: 80px;
+    background-color: #ffbfd1;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.card.matched {
+    background-color: #a6c1ee;
+    pointer-events: none;
+}
 /* Buttons */
 button {
     background-color: #ffbfd1;
